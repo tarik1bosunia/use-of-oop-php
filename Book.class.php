@@ -1,5 +1,7 @@
 <?php
-class Book{
+require_once 'Json.class.php';
+
+class Book extends Json{
     public $isbn;
     public $title;
     public $author;
@@ -20,14 +22,21 @@ class Book{
         return $result;
     }
 
-    function getCopy() :  bool{
-        if($this->available < 1){
-            return false;
-        }else{
-            $this->available = $this->available - 1;
-            return true;
-        }
-    }
+    // function getCopy() :  bool{
+    //     if($this->available < 1){
+    //         return false;
+    //     }else{
+    //         $this->available = $this->available - 1;
+    //         $this->update(array($this), $this->isbn);
+    //         return true;
+    //     }
+        
+    // }
+
+    // public function addCopy() {
+
+    //     $this->available++;
+    // }
 
     function foo()
     {

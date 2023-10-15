@@ -109,6 +109,36 @@ if (isset($_POST['bookSubmit'])) {
          
         // Store status into the session 
         $_SESSION['sessionData'] = $sessionData; 
+}elseif(($_REQUEST['action_type'] == 'get_copy') && !empty($_GET['id'])){
+    // Delete data 
+    $get_copy = $db->getCopy($_GET['id']); 
+ 
+    if($get_copy){ 
+        $sessionData['status']['type'] = 'success'; 
+        $sessionData['status']['msg'] = 'get copy  successfully.'; 
+    }else{ 
+        $sessionData['status']['type'] = 'error'; 
+        $sessionData['status']['msg'] = 'Some problem occurred, please try again.'; 
+    } 
+     
+    // Store status into the session 
+    $_SESSION['sessionData'] = $sessionData; 
+}elseif(($_REQUEST['action_type'] == 'add_copy') && !empty($_GET['id'])){
+    // Delete data 
+    $add_copy = $db->addCopy($_GET['id']); 
+    var_dump($add_copy);
+    // die('more gechi');
+ 
+    if($add_copy){ 
+        $sessionData['status']['type'] = 'success'; 
+        $sessionData['status']['msg'] = 'add copy  successfully.'; 
+    }else{ 
+        $sessionData['status']['type'] = 'error'; 
+        $sessionData['status']['msg'] = 'Some problem occurred, please try again.'; 
+    } 
+     
+    // Store status into the session 
+    $_SESSION['sessionData'] = $sessionData; 
 }
 
 // Redirect to the respective page 

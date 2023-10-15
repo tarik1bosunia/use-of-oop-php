@@ -37,13 +37,13 @@ if(!empty($sessionData['status']['msg'])){
 <?php  
 if(!empty($statusMsg) && ($statusMsgType == 'success')){ ?>
     <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
-        <span class="font-medium"> <?php $statusMsgType ?></span> <?php echo $statusMsg; ?>
+        <span class="font-medium"> <?php echo $statusMsgType ?></span> <?php echo $statusMsg; ?>
     </div>
 <?php } 
 elseif(!empty($statusMsg) && ($statusMsgType == 'error')){ ?>
     
     <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-        <span class="font-medium"><?php $statusMsgType ?> </span> <?php $statusMsg ?>
+        <span class="font-medium"><?php echo $statusMsgType ?> </span> <?php echo $statusMsg ?>
     </div>
 
 <?php } ?>
