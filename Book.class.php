@@ -30,7 +30,7 @@ class Book{
         if($this->available < 1){
             return false;
         }
-        
+
         $db = new Json();
         $update = $db->update(array($this->available), $this->isbn);
         return $update;
@@ -43,22 +43,39 @@ class Book{
 
 
     # getter and setters
+    public function __get($name)
+    {
+        // echo "Getting '$name'\n";
+        
+        // if (array_key_exists($name, $this->data)) {
+        //     return $this->data[$name];
+        // }
+        return $this->$name;
 
-    public function getTitle(): string{
-        return $this->title;
+        // $trace = debug_backtrace();
+        // trigger_error(
+        //     'Undefined property via __get(): ' . $name .
+        //     ' in ' . $trace[0]['file'] .
+        //     ' on line ' . $trace[0]['line'],
+        //     E_USER_NOTICE);
+        // return null;
     }
-    public function getPages(): int{
-        return $this->pages;
-    }
-    public function getAuthor(): string{
-        return $this->author;
-    }
-    public function getAvailable(): int{
-        return $this->available;
-    }
-    public function getIsbn(): string{
-        return $this->isbn;
-    }
+
+    // public function getTitle(): string{
+    //     return $this->title;
+    // }
+    // public function getPages(): int{
+    //     return $this->pages;
+    // }
+    // public function getAuthor(): string{
+    //     return $this->author;
+    // }
+    // public function getAvailable(): int{
+    //     return $this->available;
+    // }
+    // public function getIsbn(): string{
+    //     return $this->isbn;
+    // }
 
     # to string
     public function __toString() {
