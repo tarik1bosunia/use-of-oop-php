@@ -99,15 +99,19 @@ class Json
 
                 if ($value['available'] > 0) {
                     $data[$key]['available']--;
-                    $update = file_put_contents($this->jsonFile, json_encode($data));
+                    $bookData = array(
+                        'available' => $data[$key]['available']--
+                    );
+                    $update = $this->update($bookData, $id);
                 }
                 break;
             }
         }
 
-        return $update ? true : false;
+        return $update;
     }
 
+    
     public function addCopy($id): bool
     {
         # if not id  return
