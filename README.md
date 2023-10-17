@@ -25,6 +25,9 @@ Book
 Now create a separate php file to manipulate those classes and show output.
 ```
 
+# Images
+![update](./site_images/home.png "home")
+
 # Tailwind Integration guide
 
 ### install & initialization tailwind css
